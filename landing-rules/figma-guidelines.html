@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figma Guidelines — Plumex Landing</title>
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #fff;
+      --purple: #785eff;
+      --lime: #c6ff00;
+      --red: #ff4444;
+      --green: #22c55e;
+      --orange: #f59e0b;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-500: #6b7280;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --radius: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-900);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    header {
+      background: var(--black);
+      color: var(--white);
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 18px;
+      color: var(--gray-300);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    header .badge {
+      display: inline-block;
+      background: var(--purple);
+      color: white;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .toc {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 24px 32px;
+      margin: 32px 0;
+    }
+
+    .toc h2 {
+      font-size: 16px;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .toc ol {
+      padding-left: 20px;
+    }
+
+    .toc li {
+      margin-bottom: 6px;
+    }
+
+    .toc a {
+      color: var(--purple);
+      text-decoration: none;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 24px 0;
+    }
+
+    section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    section h2 .num {
+      background: var(--black);
+      color: var(--white);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .priority {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .priority.critical { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+    .priority.high { background: #fffbeb; color: #d97706; border: 1px solid #fed7aa; }
+    .priority.medium { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 24px 0 12px;
+      color: var(--gray-700);
+    }
+
+    p, li {
+      color: var(--gray-700);
+      margin-bottom: 8px;
+    }
+
+    .problem {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+    }
+
+    .problem strong {
+      color: #dc2626;
+    }
+
+    .solution {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+    }
+
+    .solution strong {
+      color: #16a34a;
+    }
+
+    .why {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+    }
+
+    .why strong {
+      color: #3b82f6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    th {
+      background: var(--gray-100);
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      border-bottom: 2px solid var(--gray-200);
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--gray-100);
+      vertical-align: top;
+    }
+
+    .bad { color: #dc2626; }
+    .good { color: #16a34a; }
+
+    code {
+      background: var(--gray-100);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: 'SF Mono', Consolas, monospace;
+    }
+
+    pre {
+      background: var(--gray-900);
+      color: #e5e7eb;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.7;
+      margin: 16px 0;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+
+    .tree {
+      font-family: 'SF Mono', Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .tree .highlight {
+      color: var(--purple);
+      font-weight: 600;
+    }
+
+    .tree .comment {
+      color: var(--gray-500);
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    .compare > div {
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .compare .wrong {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+
+    .compare .right {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .compare h4 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .compare .wrong h4 { color: #dc2626; }
+    .compare .right h4 { color: #16a34a; }
+
+    .compare pre {
+      font-size: 12px;
+      margin: 0;
+      padding: 12px;
+    }
+
+    .mapping-arrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      font-size: 14px;
+      font-family: 'SF Mono', Consolas, monospace;
+    }
+
+    .mapping-arrow .from {
+      color: #dc2626;
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+
+    .mapping-arrow .arrow {
+      color: var(--gray-400);
+    }
+
+    .mapping-arrow .to {
+      color: #16a34a;
+      font-weight: 600;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+
+    .checklist li {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--gray-100);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .checklist li:last-child {
+      border-bottom: none;
+    }
+
+    .checklist .check {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--gray-300);
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .component-table td:first-child {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .style-chip {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-family: monospace;
+      border: 1px solid var(--gray-200);
+      background: white;
+    }
+
+    .color-swatch {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-right: 4px;
+      border: 1px solid rgba(0,0,0,.1);
+    }
+
+    .figma-layer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      margin: 2px 0;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: 'SF Mono', Consolas, monospace;
+    }
+
+    .figma-layer.bad-name {
+      background: #fef2f2;
+      border: 1px dashed #fecaca;
+    }
+
+    .figma-layer.good-name {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .figma-layer .icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .al-demo {
+      border: 2px dashed var(--gray-300);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 12px 0;
+    }
+
+    .al-demo .label {
+      font-size: 11px;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .al-demo .items {
+      display: flex;
+      gap: 12px;
+    }
+
+    .al-demo .items.vertical {
+      flex-direction: column;
+    }
+
+    .al-demo .item {
+      background: var(--purple);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .al-demo .item.fill {
+      flex: 1;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .summary-card {
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .summary-card h4 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .summary-card p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    @media (max-width: 640px) {
+      .compare { grid-template-columns: 1fr; }
+      .summary-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Figma &rarr; Code</div>
+  <h1>Figma Guidelines</h1>
+  <p>Plumex Landing &mdash; як організувати файл, щоб AI (Claude) максимально точно конвертував дизайн у код</p>
+</header>
+
+<div class="container">
+
+  <nav class="toc">
+    <h2>Зміст</h2>
+    <ol>
+      <li><a href="#naming">Називання фреймів</a> <span class="priority critical">Критично</span></li>
+      <li><a href="#autolayout">Auto Layout</a> <span class="priority critical">Критично</span></li>
+      <li><a href="#structure">Структура сторінки</a> <span class="priority high">Високий</span></li>
+      <li><a href="#components">Компоненти</a> <span class="priority high">Високий</span></li>
+      <li><a href="#groups">GROUP &rarr; FRAME</a> <span class="priority high">Високий</span></li>
+      <li><a href="#styles">Стилі та змінні</a> <span class="priority medium">Середній</span></li>
+      <li><a href="#images">Назви зображень</a> <span class="priority medium">Середній</span></li>
+      <li><a href="#breakpoints">Breakpoints</a> <span class="priority medium">Середній</span></li>
+      <li><a href="#checklist">Фінальний чеклист</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. NAMING -->
+  <section id="naming">
+    <h2><span class="num">1</span> Називання фреймів <span class="priority critical">Критично</span></h2>
+
+    <div class="problem">
+      <strong>Проблема:</strong> 90%+ фреймів мають автогенеровані назви. Ось що Claude бачить, коли читає ваш файл:
+    </div>
+
+    <div class="compare">
+      <div class="wrong">
+        <h4>Зараз (Claude не розуміє)</h4>
+        <div class="figma-layer bad-name"><code>Frame 2121453574</code></div>
+        <div class="figma-layer bad-name"><code>Frame 2121453667</code></div>
+        <div class="figma-layer bad-name"><code>Frame 2121453625</code></div>
+        <div class="figma-layer bad-name"><code>Frame 4652</code></div>
+        <div class="figma-layer bad-name"><code>Frame 2121453678</code></div>
+        <div class="figma-layer bad-name"><code>Frame 2830</code></div>
+        <div class="figma-layer bad-name"><code>Frame 2121453640</code></div>
+        <div class="figma-layer bad-name"><code>3</code></div>
+      </div>
+      <div class="right">
+        <h4>Має бути (Claude одразу розуміє)</h4>
+        <div class="figma-layer good-name"><code>Cash In Out / Section Header</code></div>
+        <div class="figma-layer good-name"><code>Cash In Out / Cards Grid</code></div>
+        <div class="figma-layer good-name"><code>Invite Club</code></div>
+        <div class="figma-layer good-name"><code>Hero / Content Wrapper</code></div>
+        <div class="figma-layer good-name"><code>Footer / Links</code></div>
+        <div class="figma-layer good-name"><code>Header / Navigation</code></div>
+        <div class="figma-layer good-name"><code>Security</code></div>
+        <div class="figma-layer good-name"><code>Cash Access</code></div>
+      </div>
+    </div>
+
+    <div class="why">
+      <strong>Чому:</strong> Claude отримує XML-дерево елементів з назвами. Коли він бачить <code>&lt;frame name="Cash In Out / Cards Grid"&gt;</code> &mdash; одразу розуміє контекст і генерує правильний CSS class (<code>.cash-in-out-cards</code>). Коли бачить <code>&lt;frame name="Frame 2121453667"&gt;</code> &mdash; генерує безглуздий <code>.frame-2121453667</code>.
+    </div>
+
+    <h3>Правила називання</h3>
+    <table>
+      <tr>
+        <th>Правило</th>
+        <th>Приклад</th>
+      </tr>
+      <tr>
+        <td><code>/</code> як роздільник ієрархії</td>
+        <td><code>Hero / Title Group</code>, <code>Footer / Links / Services</code></td>
+      </tr>
+      <tr>
+        <td>Назва = роль, не вміст</td>
+        <td><code>Section Header</code>, а не <code>Cash access, wherever you are</code></td>
+      </tr>
+      <tr>
+        <td>Англійська мова</td>
+        <td><code>Travel Cards</code>, не <code>Картки подорожей</code></td>
+      </tr>
+      <tr>
+        <td>Без випадкових цифр</td>
+        <td><code>Card</code>, а не <code>Card 2121453668</code></td>
+      </tr>
+    </table>
+
+    <h3>Повний маппінг поточних назв</h3>
+    <table>
+      <tr><th>Зараз</th><th>Перейменувати на</th><th>Секція</th></tr>
+      <tr><td class="bad"><code>4352370</code></td><td class="good"><code>Hero / Header Area</code></td><td>Hero</td></tr>
+      <tr><td class="bad"><code>Frame 2830</code></td><td class="good"><code>Header / Nav Links</code></td><td>Header</td></tr>
+      <tr><td class="bad"><code>Picture</code></td><td class="good"><code>Parallax Phone</code></td><td>Block 2</td></tr>
+      <tr><td class="bad"><code>Frame 4652</code></td><td class="good"><code>Hero / Content</code></td><td>Hero</td></tr>
+      <tr><td class="bad"><code>Frame 4650</code></td><td class="good"><code>Hero / Text Group</code></td><td>Hero</td></tr>
+      <tr><td class="bad"><code>iPad Pro 11" - 4</code></td><td class="good"><code>Earn Spend CTA</code></td><td>Block 3</td></tr>
+      <tr><td class="bad"><code>3</code></td><td class="good"><code>Cash Access</code></td><td>Block 5</td></tr>
+      <tr><td class="bad"><code>Frame 2121453574</code></td><td class="good"><code>Cash In Out / Header</code></td><td>Block 6</td></tr>
+      <tr><td class="bad"><code>Frame 2121453667</code></td><td class="good"><code>Cash In Out / Cards</code></td><td>Block 6</td></tr>
+      <tr><td class="bad"><code>Frame 2121453625</code></td><td class="good"><code>Invite Club</code></td><td>Block 8</td></tr>
+      <tr><td class="bad"><code>iPad Pro 11" - 5</code></td><td class="good"><code>Cryptoheads</code></td><td>Block 7</td></tr>
+      <tr><td class="bad"><code>Frame 2121453640</code></td><td class="good"><code>Security</code></td><td>Block 9</td></tr>
+      <tr><td class="bad"><code>Frame 2121453676</code></td><td class="good"><code>FAQ / Accordion</code></td><td>FAQ</td></tr>
+      <tr><td class="bad"><code>Frame 2121453678</code></td><td class="good"><code>Footer / Links</code></td><td>Footer</td></tr>
+      <tr><td class="bad"><code>Frame 2121453663</code></td><td class="good"><code>Footer / Links / Services</code></td><td>Footer</td></tr>
+      <tr><td class="bad"><code>Frame 2121453664</code></td><td class="good"><code>Footer / Links / Company</code></td><td>Footer</td></tr>
+      <tr><td class="bad"><code>Frame 2121453665</code></td><td class="good"><code>Footer / Links / Help</code></td><td>Footer</td></tr>
+      <tr><td class="bad"><code>Frame 2121453666</code></td><td class="good"><code>Footer / Links / Legals</code></td><td>Footer</td></tr>
+    </table>
+  </section>
+
+  <!-- 2. AUTO LAYOUT -->
+  <section id="autolayout">
+    <h2><span class="num">2</span> Auto Layout <span class="priority critical">Критично</span></h2>
+
+    <div class="problem">
+      <strong>Проблема:</strong> Багато секцій НЕ використовують Auto Layout. Елементи розставлені вручну з абсолютними x/y координатами.
+    </div>
+
+    <h3>Фрейми без Auto Layout (треба додати)</h3>
+    <table>
+      <tr><th>Фрейм</th><th>Дітей</th><th>Проблема</th></tr>
+      <tr><td><code>Picture</code> (Parallax)</td><td>9</td><td>Телефон, чіпи, аватарки &mdash; все абсолютно</td></tr>
+      <tr><td><code>iPad Pro 11" - 4</code></td><td>1</td><td>Секція без AL</td></tr>
+      <tr><td><code>Frame 2121453640</code> (Security)</td><td>5</td><td>Текст, зображення, ефекти &mdash; все абсолютно</td></tr>
+      <tr><td><code>Frame 2121453625</code> (Invite Club)</td><td>4</td><td>Заголовок, форма, стрілка, карточки</td></tr>
+      <tr><td><code>4352370</code> (Hero wrapper)</td><td>2</td><td>Header + placeholder</td></tr>
+      <tr><td><code>Frame 2121453575</code> (Cash card 2)</td><td>2</td><td>Карточка з монетами</td></tr>
+    </table>
+
+    <div class="why">
+      <strong>Чому це важливо:</strong> Claude конвертує Auto Layout 1:1 в CSS flexbox. Ось маппінг:
+    </div>
+
+    <table>
+      <tr><th>Figma Auto Layout</th><th>CSS</th></tr>
+      <tr><td><code>VERTICAL</code></td><td><code>display: flex; flex-direction: column</code></td></tr>
+      <tr><td><code>HORIZONTAL</code></td><td><code>display: flex; flex-direction: row</code></td></tr>
+      <tr><td><code>gap: 16</code></td><td><code>gap: 16px</code></td></tr>
+      <tr><td><code>padding: 24, 40, 24, 40</code></td><td><code>padding: 24px 40px</code></td></tr>
+      <tr><td><code>FILL</code></td><td><code>flex: 1</code> / <code>width: 100%</code></td></tr>
+      <tr><td><code>HUG</code></td><td><code>width: fit-content</code></td></tr>
+      <tr><td><code>alignment: CENTER</code></td><td><code>align-items: center</code></td></tr>
+    </table>
+
+    <h3>Приклад: що вже добре</h3>
+
+    <p>Ці фрейми вже мають Auto Layout &mdash; Claude їх чудово конвертує:</p>
+
+    <div class="solution">
+      <strong>FAQ Accordion:</strong> <code>Frame 2121453676</code> &mdash; VERTICAL, gap: 0, 8 children (FAQ items)<br>
+      <strong>Cash In Out Cards:</strong> <code>Frame 2121453667</code> &mdash; VERTICAL, gap: 10, padding: 40 0<br>
+      <strong>Travel Cards:</strong> <code>cards</code> &mdash; HORIZONTAL, gap: 24, padding: 52 0 16 40
+    </div>
+
+    <h3>Як конвертувати фрейм на Auto Layout</h3>
+    <ol>
+      <li>Виділи фрейм</li>
+      <li>В правій панелі натисни <code>+</code> біля "Auto layout" (або <code>Shift+A</code>)</li>
+      <li>Обери напрямок (Vertical / Horizontal)</li>
+      <li>Встанови <code>gap</code> (відстань між елементами)</li>
+      <li>Встанови <code>padding</code></li>
+      <li>Для дітей: обери <code>Fill</code> (розтягнути) або <code>Hug</code> (по контенту) або <code>Fixed</code></li>
+    </ol>
+  </section>
+
+  <!-- 3. STRUCTURE -->
+  <section id="structure">
+    <h2><span class="num">3</span> Структура сторінки <span class="priority high">Високий</span></h2>
+
+    <div class="problem">
+      <strong>Проблема:</strong> Блоки лежать в <code>SECTION</code> "Final" без чіткої ієрархії. Назви на кшталт <code>iPad Pro</code>, <code>3</code>, <code>Picture</code>. Немає єдиного кореневого фрейму зі всіма секціями.
+    </div>
+
+    <h3>Рекомендована структура</h3>
+
+    <pre class="tree"><code>Page: Landing final
+<span class="highlight">Desktop (1440px)</span> <span class="comment">&mdash; FRAME, Auto Layout VERTICAL, W: 1440, gap: 0</span>
+  ├── <span class="highlight">Hero</span>                    <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
+  ├── <span class="highlight">Parallax Phone</span>          <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
+  ├── <span class="highlight">Earn Spend CTA</span>          <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
+  ├── <span class="highlight">Travel Cards Carousel</span>   <span class="comment">&mdash; FRAME, AL HORIZONTAL, overflow</span>
+  ├── <span class="highlight">Cash Access</span>             <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
+  ├── <span class="highlight">Cash In Out</span>             <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
+  ├── <span class="highlight">Cryptoheads</span>             <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
+  ├── <span class="highlight">Invite Club</span>             <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
+  ├── <span class="highlight">Security</span>                <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
+  ├── <span class="highlight">FAQ</span>                     <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
+  └── <span class="highlight">Footer</span>                  <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
+
+<span class="highlight">Mobile (375px)</span> <span class="comment">&mdash; FRAME, Auto Layout VERTICAL, W: 375, gap: 0</span>
+  ├── <span class="highlight">Hero</span>                    <span class="comment">&mdash; ті самі назви секцій</span>
+  ├── <span class="highlight">Parallax Phone</span>
+  ├── ...
+  └── <span class="highlight">Footer</span></code></pre>
+
+    <div class="solution">
+      <strong>Ключові принципи:</strong>
+      <ul style="margin-top: 8px">
+        <li>Один кореневий фрейм на breakpoint (Desktop / Mobile)</li>
+        <li>Кореневий фрейм = Auto Layout VERTICAL, gap: 0</li>
+        <li>Кожна секція = дитина з <code>FILL</code> по ширині</li>
+        <li>Назви секцій однакові в Desktop і Mobile</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. COMPONENTS -->
+  <section id="components">
+    <h2><span class="num">4</span> Компоненти <span class="priority high">Високий</span></h2>
+
+    <div class="problem">
+      <strong>Проблема:</strong> Карточки Travel, Cash In Out, Invite Club, секційні заголовки &mdash; все це звичайні фрейми, що дублюються. Claude створить окремий код для кожного.
+    </div>
+
+    <div class="why">
+      <strong>Чому:</strong> Коли Claude бачить <code>INSTANCE</code> (екземпляр компонента), він автоматично створює один React компонент і переиспользовує його. Без компонентів &mdash; дублює JSX для кожної карточки окремо.
+    </div>
+
+    <h3>Що вже є (добре)</h3>
+    <div class="solution">
+      <strong>Buttons</strong> &mdash; компонент кнопки, використовується в Hero, CTA<br>
+      <strong>list web</strong> &mdash; компонент FAQ item, 8 інстансів в акордеоні
+    </div>
+
+    <h3>Що потрібно створити</h3>
+    <table class="component-table">
+      <tr><th>Компонент</th><th>Варіанти (properties)</th><th>Де використовується</th></tr>
+      <tr>
+        <td><code>Card</code></td>
+        <td>
+          <code>Theme</code>: Light / Dark / Image<br>
+          <code>Size</code>: SM / LG<br>
+          <code>Has Image</code>: true / false
+        </td>
+        <td>Travel Cards (6x), Cash In Out (4x), Invite Club (4x)</td>
+      </tr>
+      <tr>
+        <td><code>Section Header</code></td>
+        <td>
+          <code>Has Badge</code>: true / false<br>
+          <code>Has Subtitle</code>: true / false
+        </td>
+        <td>Cash Access, Cash In Out, Cryptoheads, Security</td>
+      </tr>
+      <tr>
+        <td><code>Email Form</code></td>
+        <td>
+          <code>State</code>: Default / Focus / Typing / Error / Success
+        </td>
+        <td>Invite Club</td>
+      </tr>
+      <tr>
+        <td><code>Footer Column</code></td>
+        <td>
+          &mdash;
+        </td>
+        <td>Footer (4 колонки)</td>
+      </tr>
+      <tr>
+        <td><code>Chip / Badge</code></td>
+        <td>
+          <code>Label</code>: text
+        </td>
+        <td>Parallax (Swap, Send, Cash, Buy), Cash Access badge</td>
+      </tr>
+    </table>
+
+    <h3>Як створити компонент у Figma</h3>
+    <ol>
+      <li>Виділи фрейм &rarr; <code>Ctrl/Cmd + Alt + K</code> (Create Component)</li>
+      <li>Для варіантів: виділи кілька компонентів &rarr; "Combine as Variants"</li>
+      <li>Додай Component Properties (текст, boolean, instance swap) в правій панелі</li>
+      <li>Перемісти компоненти на окрему сторінку <code>Components</code></li>
+    </ol>
+  </section>
+
+  <!-- 5. GROUPS -->
+  <section id="groups">
+    <h2><span class="num">5</span> GROUP &rarr; FRAME <span class="priority high">Високий</span></h2>
+
+    <div class="problem">
+      <strong>Проблема:</strong> Є GROUP вузли (наприклад <code>Group 1597881458</code>). Groups не підтримують Auto Layout, padding, constraints, fill/stroke.
+    </div>
+
+    <div class="compare">
+      <div class="wrong">
+        <h4>GROUP</h4>
+        <ul>
+          <li>Без Auto Layout</li>
+          <li>Без padding</li>
+          <li>Без fill/stroke</li>
+          <li>Без constraints</li>
+          <li>Claude не може визначити layout</li>
+        </ul>
+      </div>
+      <div class="right">
+        <h4>FRAME</h4>
+        <ul>
+          <li>Auto Layout</li>
+          <li>Padding, gap, spacing</li>
+          <li>Fill, stroke, effects</li>
+          <li>Constraints, min/max</li>
+          <li>Claude точно конвертує</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="solution">
+      <strong>Як виправити:</strong> Виділи GROUP &rarr; правий клік &rarr; "Frame selection" (<code>Ctrl/Cmd + Alt + G</code>). Потім додай Auto Layout.
+    </div>
+  </section>
+
+  <!-- 6. STYLES -->
+  <section id="styles">
+    <h2><span class="num">6</span> Стилі та змінні <span class="priority medium">Середній</span></h2>
+
+    <h3>Paint Styles (кольори) &mdash; вже є, добре</h3>
+    <div class="style-grid">
+      <div class="style-chip"><span class="color-swatch" style="background:#785eff"></span> Main/purple</div>
+      <div class="style-chip"><span class="color-swatch" style="background:#000"></span> Main/black</div>
+      <div class="style-chip"><span class="color-swatch" style="background:#fff"></span> Main/white-100</div>
+      <div class="style-chip"><span class="color-swatch" style="background:rgba(255,255,255,.6)"></span> Main/white-60%</div>
+      <div class="style-chip"><span class="color-swatch" style="background:rgba(255,255,255,.1)"></span> Main/white-10%</div>
+      <div class="style-chip"><span class="color-swatch" style="background:rgba(0,0,0,.9)"></span> Main/black-90%</div>
+      <div class="style-chip"><span class="color-swatch" style="background:#888"></span> Main/grey</div>
+      <div class="style-chip"><span class="color-swatch" style="background:#c6ff00"></span> Main/accent</div>
+      <div class="style-chip"><span class="color-swatch" style="background:rgba(0,0,0,.42)"></span> Main/black-42%</div>
+      <div class="style-chip"><span class="color-swatch" style="background:#ff4444"></span> Error</div>
+      <div class="style-chip"><span class="color-swatch" style="background:#ffe0e0"></span> error bg</div>
+      <div class="style-chip"><span class="color-swatch" style="background:#ccc"></span> Main/grey-1</div>
+    </div>
+
+    <h3>Text Styles &mdash; вже є, добре</h3>
+    <div class="style-grid">
+      <div class="style-chip">Title/100 bold</div>
+      <div class="style-chip">Title/94 bold</div>
+      <div class="style-chip">Title/80 semb</div>
+      <div class="style-chip">Title/68 semb</div>
+      <div class="style-chip">Title/58 bold</div>
+      <div class="style-chip">Title/48 bold</div>
+      <div class="style-chip">Title/42 reg</div>
+      <div class="style-chip">Title/38 smb</div>
+      <div class="style-chip">Title/32 bold</div>
+      <div class="style-chip" style="border-color: #fecaca; background: #fef2f2">Title/20 bols</div>
+      <div class="style-chip">Text/28 reg</div>
+      <div class="style-chip">Text/24 reg</div>
+      <div class="style-chip">Text/20 med</div>
+      <div class="style-chip">Text/20 reg</div>
+      <div class="style-chip">Text/18 med</div>
+      <div class="style-chip">Text/18 reg</div>
+      <div class="style-chip">Text/16 reg</div>
+      <div class="style-chip">Text/14 reg</div>
+      <div class="style-chip">Text/12 reg</div>
+      <div class="style-chip">Bttn</div>
+      <div class="style-chip">Label</div>
+    </div>
+
+    <h3>Що виправити</h3>
+    <table>
+      <tr><th>Проблема</th><th>Рішення</th></tr>
+      <tr>
+        <td class="bad">Typo: <code>Title/20 bols</code></td>
+        <td class="good">Перейменувати на <code>Title/20 bold</code></td>
+      </tr>
+      <tr>
+        <td class="bad">Inconsistent: <code>black-90%</code> vs <code>black-42%</code> vs <code>white-60%</code></td>
+        <td class="good">Єдиний формат: <code>Main/black/90</code> або <code>Main/black-90</code></td>
+      </tr>
+      <tr>
+        <td class="bad">Inconsistent: <code>Error</code> та <code>error bg</code> (різний регістр)</td>
+        <td class="good"><code>Error/text</code> та <code>Error/background</code></td>
+      </tr>
+      <tr>
+        <td class="bad">Variable Collection порожня (1 змінна, Mode 1)</td>
+        <td class="good">Заповнити кольорами та spacing, або видалити</td>
+      </tr>
+      <tr>
+        <td class="bad">Не всі елементи мають прив'язаний стиль</td>
+        <td class="good">Кожен текст = Text Style, кожен фон = Paint Style</td>
+      </tr>
+    </table>
+
+    <h3>Рекомендація: Variable Collections</h3>
+    <pre><code>Colors Collection:
+  color/purple     = #785EFF
+  color/lime       = #C6FF00
+  color/black      = #000000
+  color/white      = #FFFFFF
+  color/grey       = #888888
+  color/error      = #FF4444
+
+Spacing Collection:
+  spacing/4   = 4
+  spacing/8   = 8
+  spacing/16  = 16
+  spacing/24  = 24
+  spacing/32  = 32
+  spacing/48  = 48
+  spacing/80  = 80
+
+Radius Collection:
+  radius/sm   = 8
+  radius/md   = 16
+  radius/lg   = 24
+  radius/pill = 999</code></pre>
+  </section>
+
+  <!-- 7. IMAGES -->
+  <section id="images">
+    <h2><span class="num">7</span> Назви зображень <span class="priority medium">Середній</span></h2>
+
+    <div class="problem">
+      <strong>Проблема:</strong> Зображення мають безглузді назви &mdash; Claude не розуміє, що це за елемент.
+    </div>
+
+    <table>
+      <tr><th>Зараз</th><th>Перейменувати на</th></tr>
+      <tr><td class="bad"><code>1 111111113</code></td><td class="good"><code>Hero / Video Placeholder</code></td></tr>
+      <tr><td class="bad"><code>Isometric iPhone mockup 1</code></td><td class="good"><code>Parallax / Phone Mockup</code></td></tr>
+      <tr><td class="bad"><code>ChatGPT Image Mar 22, 2026...</code></td><td class="good"><code>Security / Lock Illustration</code></td></tr>
+      <tr><td class="bad"><code>Image__</code></td><td class="good"><code>Security / Lock Image</code></td></tr>
+      <tr><td class="bad"><code>Plumex 5</code></td><td class="good"><code>Parallax / Background Gradient</code></td></tr>
+      <tr><td class="bad"><code>Ellipse 1736</code></td><td class="good"><code>Security / Glow Effect</code></td></tr>
+      <tr><td class="bad"><code>Rectangle 24</code></td><td class="good"><code>Footer / Divider</code></td></tr>
+      <tr><td class="bad"><code>Vector 211</code></td><td class="good"><code>Invite Club / Arrow Decoration</code></td></tr>
+      <tr><td class="bad"><code>1 111111116</code></td><td class="good"><code>Mobile / Gradient Overlay</code></td></tr>
+      <tr><td class="bad"><code>1 111111117</code></td><td class="good"><code>Mobile / Section Divider</code></td></tr>
+    </table>
+  </section>
+
+  <!-- 8. BREAKPOINTS -->
+  <section id="breakpoints">
+    <h2><span class="num">8</span> Breakpoints <span class="priority medium">Середній</span></h2>
+
+    <div class="problem">
+      <strong>Проблема:</strong> Є iPad Pro (834px) та iPhone (375px), але немає Desktop (1440px) &mdash; основного breakpoint для web.
+    </div>
+
+    <table>
+      <tr><th>Breakpoint</th><th>Ширина</th><th>Статус</th></tr>
+      <tr><td>Desktop</td><td>1440px</td><td class="bad">НЕМАЄ &mdash; потрібно додати</td></tr>
+      <tr><td>Tablet</td><td>834px (iPad Pro)</td><td class="good">Є</td></tr>
+      <tr><td>Mobile</td><td>375px (iPhone)</td><td class="good">Є</td></tr>
+    </table>
+
+    <div class="solution">
+      <strong>Рекомендація:</strong>
+      <ul style="margin-top: 8px">
+        <li><strong>Desktop (1440px)</strong> &mdash; основний, Claude верстає з нього</li>
+        <li><strong>Mobile (375px)</strong> &mdash; обов'язковий для адаптиву</li>
+        <li><strong>Tablet (834px)</strong> &mdash; опціонально, можна зробити через CSS</li>
+      </ul>
+    </div>
+
+    <h3>Правила для breakpoints</h3>
+    <ul>
+      <li>Назви секцій <strong>однакові</strong> в Desktop і Mobile (<code>Hero</code>, <code>Footer</code>, etc.)</li>
+      <li>Claude зіставляє секції за назвою &mdash; Desktop <code>Hero</code> + Mobile <code>Hero</code> = один адаптивний блок</li>
+      <li>Не називати фрейми іменем пристрою (<code>iPad Pro 11"</code>) &mdash; називати за контентом</li>
+    </ul>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="checklist">
+    <h2><span class="num">9</span> Фінальний чеклист</h2>
+
+    <ul class="checklist">
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Перейменувати всі фрейми семантично</strong>
+          <span class="priority critical">Критично</span>
+          <p style="margin:4px 0 0; font-size:13px">Жодного <code>Frame 2121453...</code> &mdash; тільки осмислені назви</p>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Увімкнути Auto Layout на всіх секціях</strong>
+          <span class="priority critical">Критично</span>
+          <p style="margin:4px 0 0; font-size:13px">Кожна секція, карточка, група &mdash; Auto Layout</p>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Один кореневий фрейм на breakpoint</strong>
+          <span class="priority high">Високий</span>
+          <p style="margin:4px 0 0; font-size:13px">Desktop (1440px) &amp; Mobile (375px) &mdash; AL VERTICAL</p>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Створити компоненти: Card, Section Header, Email Form</strong>
+          <span class="priority high">Високий</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Замінити GROUP на FRAME</strong>
+          <span class="priority high">Високий</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Назвати всі зображення зрозуміло</strong>
+          <span class="priority medium">Середній</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Виправити typo у стилях (<code>bols</code> &rarr; <code>bold</code>)</strong>
+          <span class="priority medium">Середній</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Додати Desktop (1440px) фрейм</strong>
+          <span class="priority medium">Середній</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Прив'язати всі тексти/кольори до стилів</strong>
+          <span class="priority medium">Середній</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Заповнити або видалити порожню Variable Collection</strong>
+          <span class="priority medium">Середній</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+</div>
+
+</body>
+</html>
