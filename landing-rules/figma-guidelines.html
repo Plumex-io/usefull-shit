@@ -490,6 +490,7 @@
       <li><a href="#styles">Стилі та змінні</a> <span class="priority medium">Середній</span></li>
       <li><a href="#images">Назви зображень</a> <span class="priority medium">Середній</span></li>
       <li><a href="#breakpoints">Breakpoints</a> <span class="priority medium">Середній</span></li>
+      <li><a href="#garbage">Сміття та зайві елементи</a> <span class="priority medium">Середній</span></li>
       <li><a href="#checklist">Фінальний чеклист</a></li>
     </ol>
   </nav>
@@ -499,7 +500,7 @@
     <h2><span class="num">1</span> Називання фреймів <span class="priority critical">Критично</span></h2>
 
     <div class="problem">
-      <strong>Проблема:</strong> 90%+ фреймів мають автогенеровані назви. Ось що Claude бачить, коли читає ваш файл:
+      <strong>Проблема:</strong> 90%+ фреймів мають автогенеровані назви. Деякі секції названі просто цифрами (<code>1</code>, <code>3</code>, <code>6</code>), іменами пристроїв (<code>iPad Pro 11"</code>), або числовими ID (<code>4352390</code>). Є дублікати імен &mdash; два різних фрейми <code>Frame 2121453670</code>. Ось що Claude бачить:
     </div>
 
     <div class="compare">
@@ -555,28 +556,29 @@
       </tr>
     </table>
 
-    <h3>Повний маппінг поточних назв</h3>
+    <h3>Повний маппінг &mdash; Desktop (1440px)</h3>
     <table>
       <tr><th>Зараз</th><th>Перейменувати на</th><th>Секція</th></tr>
-      <tr><td class="bad"><code>4352370</code></td><td class="good"><code>Hero / Header Area</code></td><td>Hero</td></tr>
-      <tr><td class="bad"><code>Frame 2830</code></td><td class="good"><code>Header / Nav Links</code></td><td>Header</td></tr>
-      <tr><td class="bad"><code>Picture</code></td><td class="good"><code>Parallax Phone</code></td><td>Block 2</td></tr>
-      <tr><td class="bad"><code>Frame 4652</code></td><td class="good"><code>Hero / Content</code></td><td>Hero</td></tr>
-      <tr><td class="bad"><code>Frame 4650</code></td><td class="good"><code>Hero / Text Group</code></td><td>Hero</td></tr>
-      <tr><td class="bad"><code>iPad Pro 11" - 4</code></td><td class="good"><code>Earn Spend CTA</code></td><td>Block 3</td></tr>
+      <tr><td class="bad"><code>Desktop - Concept</code></td><td class="good"><code>Desktop</code></td><td>Корінь</td></tr>
+      <tr><td class="bad"><code>Picture</code> (обгортка всього)</td><td class="good">Видалити рівень або <code>Page Content</code></td><td>&mdash;</td></tr>
+      <tr><td class="bad"><code>1</code></td><td class="good"><code>Hero</code></td><td>Block 1</td></tr>
+      <tr><td class="bad"><code>Frame 2121453641</code></td><td class="good"><code>Parallax Phone</code></td><td>Block 2</td></tr>
+      <tr><td class="bad"><code>4352390</code></td><td class="good"><code>Earn Spend CTA</code></td><td>Block 3</td></tr>
       <tr><td class="bad"><code>3</code></td><td class="good"><code>Cash Access</code></td><td>Block 5</td></tr>
       <tr><td class="bad"><code>Frame 2121453574</code></td><td class="good"><code>Cash In Out / Header</code></td><td>Block 6</td></tr>
-      <tr><td class="bad"><code>Frame 2121453667</code></td><td class="good"><code>Cash In Out / Cards</code></td><td>Block 6</td></tr>
-      <tr><td class="bad"><code>Frame 2121453625</code></td><td class="good"><code>Invite Club</code></td><td>Block 8</td></tr>
-      <tr><td class="bad"><code>iPad Pro 11" - 5</code></td><td class="good"><code>Cryptoheads</code></td><td>Block 7</td></tr>
+      <tr><td class="bad"><code>Frame 2121453670</code> (5327)</td><td class="good"><code>Cash In Out / Cards</code></td><td>Block 6</td></tr>
+      <tr><td class="bad"><code>6</code></td><td class="good"><code>Cryptoheads</code></td><td>Block 7</td></tr>
+      <tr><td class="bad"><code>Frame 2121453647</code></td><td class="good"><code>Invite Club</code></td><td>Block 8</td></tr>
+      <tr><td class="bad"><code>Frame 2121453670</code> (5342)</td><td class="good"><code>Invite Club / Cards</code></td><td>Block 8</td></tr>
       <tr><td class="bad"><code>Frame 2121453640</code></td><td class="good"><code>Security</code></td><td>Block 9</td></tr>
       <tr><td class="bad"><code>Frame 2121453676</code></td><td class="good"><code>FAQ / Accordion</code></td><td>FAQ</td></tr>
       <tr><td class="bad"><code>Frame 2121453678</code></td><td class="good"><code>Footer / Links</code></td><td>Footer</td></tr>
-      <tr><td class="bad"><code>Frame 2121453663</code></td><td class="good"><code>Footer / Links / Services</code></td><td>Footer</td></tr>
-      <tr><td class="bad"><code>Frame 2121453664</code></td><td class="good"><code>Footer / Links / Company</code></td><td>Footer</td></tr>
-      <tr><td class="bad"><code>Frame 2121453665</code></td><td class="good"><code>Footer / Links / Help</code></td><td>Footer</td></tr>
-      <tr><td class="bad"><code>Frame 2121453666</code></td><td class="good"><code>Footer / Links / Legals</code></td><td>Footer</td></tr>
+      <tr><td class="bad"><code>Frame 2830</code></td><td class="good"><code>Header / Nav Links</code></td><td>Header</td></tr>
     </table>
+
+    <div class="problem">
+      <strong>Дублікати імен:</strong> <code>Frame 2121453670</code> використовується для двох різних секцій (Cash In Out Cards та Invite Club Cards). <code>Text</code> &mdash; для 8+ різних фреймів. Claude не може їх розрізнити.
+    </div>
   </section>
 
   <!-- 2. AUTO LAYOUT -->
@@ -587,15 +589,30 @@
       <strong>Проблема:</strong> Багато секцій НЕ використовують Auto Layout. Елементи розставлені вручну з абсолютними x/y координатами.
     </div>
 
-    <h3>Фрейми без Auto Layout (треба додати)</h3>
+    <h3>Desktop (1440px) &mdash; фрейми без Auto Layout</h3>
+    <table>
+      <tr><th>Фрейм</th><th>Назва</th><th>Дітей</th><th>Проблема</th></tr>
+      <tr><td class="bad">Корінь</td><td><code>Desktop - Concept</code></td><td>4</td><td>Весь десктоп без AL!</td></tr>
+      <tr><td class="bad">Обгортка</td><td><code>Picture</code></td><td>17</td><td>Весь контент &mdash; абсолютно</td></tr>
+      <tr><td class="bad">Hero</td><td><code>1</code></td><td>2</td><td>Абсолютне позиціонування</td></tr>
+      <tr><td class="bad">Parallax</td><td><code>Frame 2121453641</code></td><td>8</td><td>Чіпи, аватарки &mdash; абсолютно</td></tr>
+      <tr><td class="bad">Earn CTA</td><td><code>4352390</code></td><td>2</td><td>Заголовок + кнопка</td></tr>
+      <tr><td class="bad">Cash Access</td><td><code>3</code></td><td>2</td><td>Текст + глобус</td></tr>
+      <tr><td class="bad">Cryptoheads</td><td><code>6</code></td><td>2</td><td>Заголовок + карточки</td></tr>
+      <tr><td class="bad">Security</td><td><code>Frame 2121453640</code></td><td>5</td><td>Текст, зображення, ефекти</td></tr>
+      <tr><td class="bad">Header</td><td><code>Header</code></td><td>5</td><td>Навігація без AL</td></tr>
+    </table>
+
+    <div class="problem">
+      <strong>Підсумок Desktop:</strong> з 17 секцій-дітей <code>Picture</code>, лише 4 мають Auto Layout (<code>Cash In Out Header</code>, 2&times; <code>Cards</code>, <code>FAQ</code>). Решта 13 &mdash; абсолютне позиціонування.
+    </div>
+
+    <h3>Tablet/Mobile &mdash; теж є проблеми</h3>
     <table>
       <tr><th>Фрейм</th><th>Дітей</th><th>Проблема</th></tr>
-      <tr><td><code>Picture</code> (Parallax)</td><td>9</td><td>Телефон, чіпи, аватарки &mdash; все абсолютно</td></tr>
-      <tr><td><code>iPad Pro 11" - 4</code></td><td>1</td><td>Секція без AL</td></tr>
-      <tr><td><code>Frame 2121453640</code> (Security)</td><td>5</td><td>Текст, зображення, ефекти &mdash; все абсолютно</td></tr>
+      <tr><td><code>Picture</code> (Tablet, Parallax)</td><td>9</td><td>Телефон, чіпи, аватарки &mdash; все абсолютно</td></tr>
       <tr><td><code>Frame 2121453625</code> (Invite Club)</td><td>4</td><td>Заголовок, форма, стрілка, карточки</td></tr>
-      <tr><td><code>4352370</code> (Hero wrapper)</td><td>2</td><td>Header + placeholder</td></tr>
-      <tr><td><code>Frame 2121453575</code> (Cash card 2)</td><td>2</td><td>Карточка з монетами</td></tr>
+      <tr><td><code>Frame 2121453640</code> (Security)</td><td>5</td><td>Текст, зображення, ефекти</td></tr>
     </table>
 
     <div class="why">
@@ -639,7 +656,11 @@
     <h2><span class="num">3</span> Структура сторінки <span class="priority high">Високий</span></h2>
 
     <div class="problem">
-      <strong>Проблема:</strong> Блоки лежать в <code>SECTION</code> "Final" без чіткої ієрархії. Назви на кшталт <code>iPad Pro</code>, <code>3</code>, <code>Picture</code>. Немає єдиного кореневого фрейму зі всіма секціями.
+      <strong>Проблема:</strong> Section "Final" містить <strong>24 елементи на одному рівні</strong> без ієрархії: 3 breakpoints, 5 станів форми, 5 окремих Card, 3 Maintenance, popup, скріншоти. Desktop фрейм &mdash; 11-й по порядку (тому Claude його не побачив при першому скані).
+    </div>
+
+    <div class="problem">
+      <strong>Зайва вкладеність:</strong> Всередині Desktop фрейму весь контент загорнутий у фрейм <code>Picture</code> (1440&times;10823) &mdash; без Auto Layout, без видимої причини. Footer &mdash; розсипаний: links, divider, legal, copyright, logo &mdash; все окремі діти без обгортки.
     </div>
 
     <h3>Рекомендована структура</h3>
@@ -657,12 +678,36 @@
   ├── <span class="highlight">Security</span>                <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
   ├── <span class="highlight">FAQ</span>                     <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
   └── <span class="highlight">Footer</span>                  <span class="comment">&mdash; FRAME, AL VERTICAL, FILL width</span>
+        ├── Footer / Links
+        ├── Footer / Divider
+        ├── Footer / Legal Text
+        ├── Footer / Copyright
+        └── Footer / Logo
 
 <span class="highlight">Mobile (375px)</span> <span class="comment">&mdash; FRAME, Auto Layout VERTICAL, W: 375, gap: 0</span>
   ├── <span class="highlight">Hero</span>                    <span class="comment">&mdash; ті самі назви секцій</span>
   ├── <span class="highlight">Parallax Phone</span>
   ├── ...
-  └── <span class="highlight">Footer</span></code></pre>
+  └── <span class="highlight">Footer</span>
+
+<span class="highlight">States / Email Form</span>       <span class="comment">&mdash; окрема група для станів форми</span>
+  ├── Desktop / Focus
+  ├── Desktop / Typing
+  ├── Desktop / Error
+  ├── Desktop / Success
+  ├── Mobile / Focus
+  └── Mobile / Error, Success...
+
+<span class="highlight">Maintenance</span>               <span class="comment">&mdash; окрема група</span></code></pre>
+
+    <h3>Що виправити конкретно</h3>
+    <ol>
+      <li><strong>Видалити рівень <code>Picture</code></strong> &mdash; перемістити секції напряму в Desktop</li>
+      <li><strong>Загорнути Footer</strong> &mdash; links + divider + legal + copyright + logo &rarr; один фрейм</li>
+      <li><strong>Винести стани форми</strong> (5 фреймів) в окрему групу</li>
+      <li><strong>Винести Maintenance</strong> (3 фрейми) в окрему групу</li>
+      <li><strong>Видалити сміття</strong> &mdash; loose rectangles, скріншоти, дублікати</li>
+    </ol>
 
     <div class="solution">
       <strong>Ключові принципи:</strong>
@@ -671,6 +716,8 @@
         <li>Кореневий фрейм = Auto Layout VERTICAL, gap: 0</li>
         <li>Кожна секція = дитина з <code>FILL</code> по ширині</li>
         <li>Назви секцій однакові в Desktop і Mobile</li>
+        <li>Стани UI (форми, modals) &mdash; окремо від основного потоку</li>
+        <li>Без зайвих рівнів вкладеності (як <code>Picture</code>)</li>
       </ul>
     </div>
   </section>
@@ -903,23 +950,29 @@ Radius Collection:
   <section id="breakpoints">
     <h2><span class="num">8</span> Breakpoints <span class="priority medium">Середній</span></h2>
 
-    <div class="problem">
-      <strong>Проблема:</strong> Є iPad Pro (834px) та iPhone (375px), але немає Desktop (1440px) &mdash; основного breakpoint для web.
-    </div>
-
     <table>
-      <tr><th>Breakpoint</th><th>Ширина</th><th>Статус</th></tr>
-      <tr><td>Desktop</td><td>1440px</td><td class="bad">НЕМАЄ &mdash; потрібно додати</td></tr>
-      <tr><td>Tablet</td><td>834px (iPad Pro)</td><td class="good">Є</td></tr>
-      <tr><td>Mobile</td><td>375px (iPhone)</td><td class="good">Є</td></tr>
+      <tr><th>Breakpoint</th><th>Поточна назва</th><th>Ширина</th><th>Статус</th></tr>
+      <tr><td>Desktop</td><td class="bad"><code>Desktop - Concept</code></td><td>1440px</td><td>Є, але без Auto Layout</td></tr>
+      <tr><td>Tablet</td><td class="bad"><code>iPad Pro</code></td><td>834px</td><td class="good">Є</td></tr>
+      <tr><td>Mobile</td><td class="bad"><code>Iphone 11 Pro</code></td><td>375px</td><td class="good">Є</td></tr>
     </table>
 
-    <div class="solution">
-      <strong>Рекомендація:</strong>
+    <div class="problem">
+      <strong>Проблеми:</strong>
       <ul style="margin-top: 8px">
-        <li><strong>Desktop (1440px)</strong> &mdash; основний, Claude верстає з нього</li>
-        <li><strong>Mobile (375px)</strong> &mdash; обов'язковий для адаптиву</li>
-        <li><strong>Tablet (834px)</strong> &mdash; опціонально, можна зробити через CSS</li>
+        <li><strong>Назви не консистентні:</strong> мікс пристроїв і абстрактних назв</li>
+        <li><strong>"Concept"</strong> в назві Desktop &mdash; натякає на чернетку. Claude може проігнорувати</li>
+        <li><strong>Desktop без Auto Layout:</strong> кореневий фрейм і ВСІ секції &mdash; абсолютне позиціонування</li>
+        <li><strong>Зайвий рівень <code>Picture</code></strong> обгортає весь контент Desktop</li>
+      </ul>
+    </div>
+
+    <div class="solution">
+      <strong>Перейменувати:</strong>
+      <ul style="margin-top: 8px">
+        <li><code>Desktop - Concept</code> &rarr; <strong><code>Desktop</code></strong> (1440px)</li>
+        <li><code>iPad Pro</code> &rarr; <strong><code>Tablet</code></strong> (834px)</li>
+        <li><code>Iphone 11 Pro</code> &rarr; <strong><code>Mobile</code></strong> (375px)</li>
       </ul>
     </div>
 
@@ -931,33 +984,110 @@ Radius Collection:
     </ul>
   </section>
 
+  <!-- 9. GARBAGE -->
+  <section id="garbage">
+    <h2><span class="num">9</span> Сміття та зайві елементи <span class="priority medium">Середній</span></h2>
+
+    <div class="problem">
+      <strong>Проблема:</strong> В Section "Final" та всередині Desktop фрейму лежать елементи, які не є частиною дизайну &mdash; скріншоти, невідомі прямокутники, дублікати.
+    </div>
+
+    <h3>Що видалити або прибрати</h3>
+    <table>
+      <tr><th>Елемент</th><th>Розмір</th><th>Причина</th></tr>
+      <tr>
+        <td class="bad"><code>Знімок екрана 2026-03-27 о 10.48.41 2</code></td>
+        <td>297&times;403</td>
+        <td>Скріншот з українською назвою, не елемент дизайну</td>
+      </tr>
+      <tr>
+        <td class="bad"><code>Rectangle 1810</code></td>
+        <td>658&times;654</td>
+        <td>Невідомий прямокутник без видимої ролі</td>
+      </tr>
+      <tr>
+        <td class="bad"><code>Isometric iPhone mockup 1</code> (729:8214)</td>
+        <td>512&times;952</td>
+        <td>Loose дублікат, лежить поза секцією</td>
+      </tr>
+      <tr>
+        <td class="bad">5&times; <code>Card</code> (717:12455&ndash;12481)</td>
+        <td>1354&times;500</td>
+        <td>Окремі карточки поза основним потоком &mdash; мабуть заготовки</td>
+      </tr>
+    </table>
+
+    <h3>Дублікати назв</h3>
+    <div class="compare">
+      <div class="wrong">
+        <h4>Проблема</h4>
+        <p><code>Frame 2121453670</code> &mdash; використовується для <strong>двох різних</strong> секцій:</p>
+        <ul>
+          <li>Cash In Out Cards (id: 666:5327)</li>
+          <li>Invite Club Cards (id: 666:5342)</li>
+        </ul>
+        <p style="margin-top: 8px"><code>Text</code> &mdash; ім'я для 8+ різних фреймів в Security та Cards</p>
+      </div>
+      <div class="right">
+        <h4>Рішення</h4>
+        <p>Кожен фрейм = унікальна назва:</p>
+        <ul>
+          <li><code>Cash In Out / Cards</code></li>
+          <li><code>Invite Club / Cards</code></li>
+        </ul>
+        <p style="margin-top: 8px"><code>Security / Feature / MiCA</code>, <code>Security / Feature / DORA</code>, etc.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CHECKLIST -->
   <section id="checklist">
-    <h2><span class="num">9</span> Фінальний чеклист</h2>
+    <h2><span class="num">10</span> Фінальний чеклист</h2>
 
+    <h3 style="margin-top: 16px; color: #dc2626;">Критично (без цього Claude не може нормально працювати)</h3>
     <ul class="checklist">
       <li>
         <span class="check"></span>
         <div>
-          <strong>Перейменувати всі фрейми семантично</strong>
+          <strong>Перейменувати ВСІ фрейми семантично</strong>
           <span class="priority critical">Критично</span>
-          <p style="margin:4px 0 0; font-size:13px">Жодного <code>Frame 2121453...</code> &mdash; тільки осмислені назви</p>
+          <p style="margin:4px 0 0; font-size:13px">Особливо: <code>1</code>, <code>3</code>, <code>6</code>, <code>Picture</code>, <code>4352390</code>, всі <code>Frame 2121453...</code></p>
         </div>
       </li>
       <li>
         <span class="check"></span>
         <div>
-          <strong>Увімкнути Auto Layout на всіх секціях</strong>
+          <strong>Увімкнути Auto Layout на Desktop фреймі та всіх секціях</strong>
           <span class="priority critical">Критично</span>
-          <p style="margin:4px 0 0; font-size:13px">Кожна секція, карточка, група &mdash; Auto Layout</p>
+          <p style="margin:4px 0 0; font-size:13px">Зараз Desktop та майже всі секції &mdash; абсолютне позиціонування</p>
         </div>
       </li>
       <li>
         <span class="check"></span>
         <div>
-          <strong>Один кореневий фрейм на breakpoint</strong>
+          <strong>Виправити дублікати назв</strong>
+          <span class="priority critical">Критично</span>
+          <p style="margin:4px 0 0; font-size:13px"><code>Frame 2121453670</code> (2 різних), <code>Text</code> (8+ різних)</p>
+        </div>
+      </li>
+    </ul>
+
+    <h3 style="margin-top: 24px; color: #d97706;">Високий пріоритет</h3>
+    <ul class="checklist">
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Видалити зайвий рівень <code>Picture</code> в Desktop</strong>
           <span class="priority high">Високий</span>
-          <p style="margin:4px 0 0; font-size:13px">Desktop (1440px) &amp; Mobile (375px) &mdash; AL VERTICAL</p>
+          <p style="margin:4px 0 0; font-size:13px">Перемістити секції напряму в Desktop фрейм</p>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Загорнути Footer в один фрейм</strong>
+          <span class="priority high">Високий</span>
+          <p style="margin:4px 0 0; font-size:13px">Links + divider + legal + copyright + logo &rarr; Footer</p>
         </div>
       </li>
       <li>
@@ -977,6 +1107,25 @@ Radius Collection:
       <li>
         <span class="check"></span>
         <div>
+          <strong>Винести стани форми email в окрему групу</strong>
+          <span class="priority high">Високий</span>
+          <p style="margin:4px 0 0; font-size:13px">5 фреймів focus/typing/error/success &mdash; не в основному потоці</p>
+        </div>
+      </li>
+    </ul>
+
+    <h3 style="margin-top: 24px; color: #16a34a;">Середній пріоритет</h3>
+    <ul class="checklist">
+      <li>
+        <span class="check"></span>
+        <div>
+          <strong>Перейменувати breakpoints: <code>Desktop</code>, <code>Tablet</code>, <code>Mobile</code></strong>
+          <span class="priority medium">Середній</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div>
           <strong>Назвати всі зображення зрозуміло</strong>
           <span class="priority medium">Середній</span>
         </div>
@@ -991,7 +1140,7 @@ Radius Collection:
       <li>
         <span class="check"></span>
         <div>
-          <strong>Додати Desktop (1440px) фрейм</strong>
+          <strong>Видалити сміття (скріншоти, зайві прямокутники)</strong>
           <span class="priority medium">Середній</span>
         </div>
       </li>
